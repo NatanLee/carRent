@@ -1,0 +1,24 @@
+.Slider
+    position: relative
+    display: flex
+    height: 50vh
+    max-width: 1000px
+    margin: 20px auto    
+    div
+        transition: opacity .7s ease-in
+        position: relative
+        opacity: 1
+        z-index: 0
+        img
+            position: absolute
+            height: 100%
+            width: 100%
+            object-fit: cover
+            max-width: 1000px
+            border-radius: 20px
+        &.transparent
+            opacity: 0
+        &.overlayed
+            z-index: 1
+
+        

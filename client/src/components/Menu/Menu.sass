@@ -1,0 +1,72 @@
+@import ../../variables
+
+.Menu
+    background-color: $light_color
+    transition: transform .3s ease
+    @media (max-width: $small)
+        width: 250px
+        transform: translateX(-250px)
+        position: absolute
+        z-index: 999
+        &.open
+            transform: translateX(0)
+    ul
+        margin: 0px auto
+        max-width: 1000px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        list-style-type: none
+        @media (max-width: $small)
+            //transform: translateX(-500px)
+            flex-direction: column        
+        li            
+            display: flex
+            flex-grow: 1
+            @media (max-width: $small)
+                width: 100%
+            a                   
+                display: flex
+                align-items: center
+                justify-content: center
+                min-width: 100px
+                width: 100%
+                font-weight: bold                
+                text-decoration: none
+                height: 50px
+                &:hover
+                    background-color: darken($light_color, 5%)
+                @media (max-width: $small)
+                    padding-left: 20px 
+                    padding-right: 20px
+                    //width: 100%
+                    
+    .MenuToggle        
+        i
+            display: none
+            @media (max-width: $small)
+                padding: 12px 12px
+                transform: translateX(250px)
+                position: absolute
+                transition: all .5s ease
+                display: block
+                cursor: pointer
+                font-size: 2rem
+    &.backplate
+        display: none
+        &.open
+            display: block
+            background-color: rgba($dark_color, .5)
+            position: absolute
+            z-index: 998
+            width: 100%
+            transform: translateX(0px)
+            //height: 100vh
+            left: 0
+            right: 0
+            top: 0
+            bottom: 0
+
+        
+            
+

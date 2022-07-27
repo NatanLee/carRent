@@ -1,0 +1,69 @@
+@import ../../../variables
+
+.Header
+    background-color: $dark_color
+    color: $white-color    
+    .first-line
+        display: flex
+        max-width: $large
+        
+        margin: 0 auto
+        justify-content: space-between
+        align-items: center
+        position: relative
+        //height: 60px
+        @media (max-width: $small)
+            flex-wrap: wrap
+            //color: red                
+        .logo
+            color: inherit
+            display: flex
+            flex-direction: column
+            margin: 5px 10px
+            text-decoration: none
+            &:hover
+                color: $light_color
+            p:first-child
+                font-size: 1.6rem
+                font-weight: bold
+                text-align: center
+            p:nth-child(2)                
+                font-size: 0.9rem
+                text-align: center
+            @media (max-width: $small)
+                flex-basis: 50%
+                text-align: right
+            @media (max-width: $min_width_step1)
+                flex-basis: 100%
+        .slogan
+            display: flex
+            flex-direction: column
+            font-size: 1.1rem
+            @media (max-width: $small)
+                order: 3
+                width: 100%
+                justify-content: center
+                display: block
+                text-align: center
+                background-color: $light_color
+                color: $dark_color
+                p
+                    display: inline-block
+                    margin: 5px 10px
+
+        .button
+            color: $text_main_color
+            font-weight: bold
+            background-color: $white_color
+            border-radius: 10px
+            margin: 10px
+            padding: 10px 20px
+            cursor: pointer
+            outline: none
+            border: none
+            transition: all 0.3s ease
+            &:hover
+                background-color: $light_color
+            @media (max-width: $min_width_step1)
+                flex-basis: 100%
+

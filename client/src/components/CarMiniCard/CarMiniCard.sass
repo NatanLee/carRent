@@ -1,0 +1,89 @@
+@import ../../variables
+    
+.CarMiniCard
+    flex-basis: 30%
+    border: 3px solid $light_color
+    margin: 10px
+    border-radius: 10px
+    text-decoration: none
+    display: flex
+    flex-direction: column
+    justify-content: space-between 
+    @media (max-width: $small)
+        flex-basis: 100%
+    &:hover
+        border: 3px solid $dark_color
+    .carName
+        text-align: left
+        margin: 5px 10px
+    .carImg
+        margin: 5px 0
+        height: 200px
+        width: 100%        
+        overflow: hidden        
+        position: relative
+        @media (max-width: $small)
+            height: 300px
+        img
+            position: absolute
+            padding: 5px
+            border-radius: 10px
+            left: 0
+            width: 100%
+            height: 100%
+            object-fit: cover
+    .info
+        font-size: 0.8rem        
+        padding: 10px 0
+        font-weight: bold
+        display: flex
+        justify-content: center
+        flex-wrap: wrap
+        p
+            margin: 3px 5px
+            vertical-align: middle
+            //flex-shrink: 2
+    .status
+        display: flex
+        //height: 37px 
+        align-items: flex-end 
+        p
+            width: 50%
+            margin: 3px
+            padding: 8px 5px
+            font-size: 0.9rem
+            font-weight: bold
+            height: 100%
+            border-radius: 10px
+            border: 2px solid $dark_color
+            display: flex
+            align-items: center
+            justify-content: center
+            &.free
+                color: #00a745
+                border: 2px solid #00a745
+            &.reserve
+                color: #a7a400
+                border: 2px solid #a7a400
+
+            &.buzy
+                color: #a70000
+                border: 2px solid #a70000
+
+        .button
+            //align-self: center
+            font-size: 0.9rem
+            width: 50%
+            background-color: #5347ff
+            padding: 8px 0
+            margin: 3px
+            border-radius: 10px
+            color: white
+            font-weight: bold
+            outline: none
+            border: 2px solid #5347ff
+            cursor: pointer
+            &:hover
+                background-color: lighten(#5347ff, 10%)
+
+            
