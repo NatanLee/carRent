@@ -21,22 +21,22 @@ const Header = (props) =>{
     
     return(
         <>
-        <header>
-            <div className = "Header">
-                <div className = "first-line">                
-                    <a href="/" className="logo">                        
-                        <p>Matiz co</p>
-                        <p>автопрокат</p>                        
-                    </a>                    
-                    <div className = "slogan">                        
-                        <p>Аренда автомобилей в Челябинске</p>
-                        <p>Аренда автомобиля дешево</p>
-                    </div>                    
-                    <button class = "button" onClick={clickHandler}>Задать вопрос</button>
+            <header>
+                <div className = "Header">
+                    <div className = "first-line">                
+                        <a href="/" className="logo">                        
+                            <p>Matiz co</p>
+                            <p>автопрокат</p>                        
+                        </a>                    
+                        <div className = "slogan">                        
+                            <p>Аренда автомобилей в Челябинске</p>
+                            <p>Аренда автомобиля дешево</p>
+                        </div>                    
+                        <button class = "button" onClick={clickHandler}>Задать вопрос</button>
+                    </div>
                 </div>
-            </div>
-        </header>
-        {QuestionIsOpen ? <Question clickHandler={clickHandler}/> : null}
+            </header>
+            {QuestionIsOpen ? <Question clickHandler={clickHandler}/> : null}            
         </>
     )
 }

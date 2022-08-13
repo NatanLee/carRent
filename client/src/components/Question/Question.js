@@ -2,11 +2,13 @@ import { useState } from 'react';
 import './Question.sass';
 
 const Question = (props) => {
-    
+    let startTimer = 5;
+
     const [phoneError, setphoneError] = useState("");
     const [emailError, setemailError] = useState("");
     const [questionError, setquestionError] = useState("");
-    const [validation, setValidation] = useState(false);
+    const [formSended, setFormSended] = useState(false);
+    const [count, setCount] = useState(startTimer);
 
     function preventAllActions(e){
         e.stopPropagation();
@@ -26,16 +28,12 @@ const Question = (props) => {
         return "Проверьте правильность почтового адреса";
     }
 
-    function questionValidate(question){
-        let redexp = /\w+/i;
-        if(redexp.test(question)) return false;
+    function questionValidate(question){        
+        if(question.trim) return false;
         return "Запрос не может быть пустым";
     }
 
-    function writeQuestion(phone, email, question) {
-        console.log(phone, email, question);
-
-    }
+ 
 
     function handleSubmit(e){
         e.preventDefault();
@@ -45,7 +43,7 @@ const Question = (props) => {
         let question = form.question.value;
         let validationStatus = true;
 
-        if(phoneValidate(phone)) {            
+        if(phoneValidate(phone)) {
             setphoneError(phoneValidate(phone));
             validationStatus = false;
         }else{
@@ -67,13 +65,45 @@ const Question = (props) => {
         //console.log(question);
         if(validationStatus){
             writeQuestion(phone, email, question);
-            props.clickHandler();
+            setFormSended(true);
+            timerToCloseBlock();
+            //props.clickHandler();
         }        
     }
+
+    function timerToCloseBlock(){
+        let stTimer = startTimer;
+        let timer = setInterval(()=>{
+            stTimer--;
+            setCount(stTimer);
+            //console.log(stTimer);
+            if(!stTimer){
+                clearInterval(timer);
+                //console.log('stop');
+                props.clickHandler();
+            } 
+        }, 1000);
+    }
+
+
+    function writeQuestion(phone, email, question) {
+        console.log(phone, email, question);
+
+        fetch('/api/cars/setQuestion', {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({phone, email, question})
+        });
+
+    }
+
+
     
     return (
         <div className="Question" onClick={props.clickHandler}>
-            
+            {!formSended &&
             <div className="block" onClick={preventAllActions} >
                 <h1>Задайте вопрос</h1>
                 <form onSubmit={handleSubmit}>
@@ -90,6 +120,15 @@ const Question = (props) => {
                     <input type="submit" value="Отправить"/>
                 </form>
             </div>
+            }
+            {formSended &&
+                <div className='afterBlock'>
+                    <p>Ваш вопрос получен</p>
+                    <p>Ответим Вам в ближайшее время</p>
+                    <button>OK({count})</button>
+                </div>
+                
+            }
 
         </div>
     )

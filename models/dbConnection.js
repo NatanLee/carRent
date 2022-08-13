@@ -73,8 +73,22 @@ exports.getPrice = function (car_class){
                 db.end();
             }
         });
-    });
-    
+    });    
 }
 
+exports.setQuestion = function(data){
+    console.log('data', Object.keys(data).join(', '))
+    const db = connection();
+    
+    const sql = `INSERT INTO questions (phone, email, question) VALUES ('${data.phone}', '${data.email}', '${data.question}')`;
+    //console.log(sql);
+    
+    db.query(sql, (err, result) => {
+        if(err) {
+            console.log(err);
+        }else{            
+            db.end();
+        }
+    });
+}
 

@@ -38,4 +38,11 @@ router.post('/getImgNames', jsonParser, (req, res) => {
     res.send(filenames);    
 })
 
+router.post('/setQuestion', jsonParser, (req, res) => {
+    if(!req.body) return res.sendStatus(400);
+    console.log(req.body);
+    dbConnection.setQuestion(req.body);
+
+})
+
 module.exports = router;
