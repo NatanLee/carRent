@@ -117,7 +117,11 @@ const Question = (props) => {
                     <p>Ваш вопрос</p>
                     <textarea name="question"></textarea>
                     {questionError ? <p>{questionError}</p> : null}
-                    <input type="submit" value="Отправить"/>
+                    <div className='actionButtons'>
+                        <input type="submit" value="Отправить"/>
+                        <button onClick={props.clickHandler}>Отмена</button>
+                    </div>
+                    
                 </form>
             </div>
             }

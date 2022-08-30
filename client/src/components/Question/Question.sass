@@ -11,8 +11,69 @@
     display: flex
     justify-content: center
     align-items: center
+    
     .block
         background-color: $white_color
-
+        padding: 20px
+        border-radius: 20px
+        max-width: 500px
+        min-width: 300px
+        width: 100%
+        margin: 15px
+        h1
+            margin: 0 auto 10px
+        p
+            padding: 7px 0 1px
+        input, 
+        textarea
+            border-color: rgba($dark_color, .5)
+            width: 100%
+            outline: none
+            padding: 3px
+            border-radius: 5px
+        textarea
+            resize: none
+            height: 5rem
+            &:focus
+                border-color: $dark_color
+        .actionButtons
+            display: flex
+            input,
+            button
+                background-color: $dark_color
+                padding: 10px 0
+                margin: 2px
+                width: calc(100% - 10px)
+                border-radius: 10px
+                color: white
+                font-weight: bold
+                outline: none
+                border: none
+                cursor: pointer
+                &:hover
+                    background-color: lighten($dark_color, 10%)
     .afterBlock
         background-color: $white_color
+        display: flex
+        flex-direction: column
+        width: 300px
+        padding: 30px
+        border-radius: 20px
+        p
+            margin: 10px auto
+            text-align: center
+            font-size: 1.2rem
+        
+        button
+            background-color: $dark_color
+            padding: 10px 0
+            margin: 2px
+            width: calc(100% - 10px)
+            border-radius: 10px
+            color: white
+            font-weight: bold
+            outline: none
+            border: none
+            cursor: pointer
+            &:hover
+                background-color: lighten($dark_color, 10%)

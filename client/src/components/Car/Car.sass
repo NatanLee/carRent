@@ -1,8 +1,12 @@
-.Car
+@import ../../variables
+    
+.Car    
     max-width: 1000px
     margin: 20px auto
-    border: 3px solid #e3e4ff
-    border-radius: 20px    
+    border: 3px solid $light_color
+    border-radius: 20px  
+    h1
+        padding: 0 10px   
     .carInfo
         display: flex
         justify-content: space-between
@@ -51,7 +55,7 @@
 
         .pricesWrapper
             //outline: 1px solid red
-            background-color: #e3e4ff
+            background-color: $light_color
             border-radius: 10px  
         
             .prices
@@ -71,7 +75,7 @@
                         font-size: 1.1rem
                         margin: 4px 0
             button
-                background-color: #5347ff
+                background-color: $dark_color
                 padding: 10px 0
                 margin: 2px
                 width: calc(100% - 10px)
@@ -82,5 +86,5 @@
                 border: none
                 cursor: pointer
                 &:hover
-                    background-color: lighten(#5347ff, 10%)
+                    background-color: lighten($dark_color, 10%)
 
